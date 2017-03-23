@@ -5,7 +5,7 @@
 <feature
       id="${package}.feature"
       label="REST Service"
-      version="${parsedVersion.osgiVersion}"
+      version="1.0.0.qualifier"
       provider-name="PROVIDER">
 
    <description url="http://www.example.com/description">
