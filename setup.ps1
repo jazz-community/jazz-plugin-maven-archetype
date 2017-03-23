@@ -1,5 +1,5 @@
 param (
-    [string]$group = "com.example.company",
+    [string]$group = "com.siemens.example",
     [string]$version = "1.0.0-SNAPSHOT"
 )
 
