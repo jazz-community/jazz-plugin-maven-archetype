@@ -13,7 +13,7 @@
             <service
                   name="REST Service"
                   kind="MODELLED_REST"
-                  uri="${package}.IService"
+                  uri="${package}.IExampleService"
                   version="1">
             </service>
       </component>
@@ -22,9 +22,9 @@
          point="com.ibm.team.repository.service.serviceProvider">
       <serviceProvider
             componentId="${package}"
-            implementationClass="${package}.Service">
+            implementationClass="${package}.ExampleService">
          <provides>
-         	<providedService interface="${package}.IService" />
+         	<providedService interface="${package}.IExampleService" />
          </provides>
          <prerequisites>
 	         <optionalService
