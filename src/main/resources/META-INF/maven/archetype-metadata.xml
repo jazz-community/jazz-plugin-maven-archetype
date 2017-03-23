@@ -48,25 +48,19 @@
             </includes>
         </fileSet>
         <!-- update site folder -->
-        <fileSet filtered="true" encoding="UTF-8">
+        <fileSet filtered="false" encoding="UTF-8">
             <directory>update-site/templates</directory>
             <includes>
                 <include>**/*.xml</include>
             </includes>
         </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>update-site/templates/category</directory>
-            <includes>
-                <include>**/*.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet encoding="UTF-8">
+        <fileSet filtered="false" encoding="UTF-8">
             <directory>update-site/templates/deployment</directory>
             <includes>
                 <include>**/*.ini</include>
             </includes>
         </fileSet>
-        <fileSet encoding="UTF-8">
+        <fileSet filtered="false" encoding="UTF-8">
             <directory>update-site/templates</directory>
             <includes>
                 <include>**/*.ini</include>
