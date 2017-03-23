@@ -1,0 +1,42 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!-- https://jazz.net/wiki/bin/view/Main/JAFServiceFramework -->
+<plugin>
+   <extension
+         point="com.ibm.team.repository.common.components">
+      <component
+            id="${package}"
+            name="REST service">
+            <service
+                  name="REST Service"
+                  kind="MODELLED_REST"
+                  uri="${package}.IService"
+                  version="1">
+            </service>
+      </component>
+   </extension>
+   <extension
+         point="com.ibm.team.repository.service.serviceProvider">
+      <serviceProvider
+            componentId="${package}"
+            implementationClass="${package}.Service">
+         <provides>
+         	<providedService interface="${package}.IService" />
+         </provides>
+         <prerequisites>
+	         <optionalService
+	               interface="com.ibm.team.repository.common.service.IContributorService">
+	         </optionalService>
+	         <optionalService
+                interface="com.ibm.team.workitem.service.IWorkItemServer">
+	         </optionalService>
+             <optionalService
+                 interface="com.ibm.team.repository.common.internal.IContributorRestService">
+             </optionalService>
+         </prerequisites>
+      </serviceProvider>
+   </extension>
+</plugin>

@@ -1,0 +1,7 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <feature url="features/${symbol_dollar}{project.groupId}.feature_${symbol_dollar}{qualifiedVersion}.jar" id="${symbol_dollar}{project.groupId}.feature" version="${symbol_dollar}{qualifiedVersion}"/>
+</siteproject.groupI>
