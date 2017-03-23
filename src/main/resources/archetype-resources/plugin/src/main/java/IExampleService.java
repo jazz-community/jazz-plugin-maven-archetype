@@ -5,9 +5,7 @@ package ${package};
 
 import com.ibm.team.repository.common.transport.ITeamRestService;
 
-/**
- *  Interface describing the service which the class loader loads.
- *
- */
-public interface IService extends ITeamRestService {
+@SuppressWarnings("WeakerAccess")
+public interface IExampleService extends ITeamRestService {
+
 }
