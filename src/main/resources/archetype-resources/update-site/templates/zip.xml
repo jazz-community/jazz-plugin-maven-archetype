@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 <assembly
 	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -11,24 +8,24 @@
 	</formats>
 	<fileSets>
 		<fileSet>
-			<directory>${symbol_dollar}{project.build.directory}/repository/features</directory>
-			<outputDirectory>${symbol_dollar}{project.groupId}-update-site/features </outputDirectory>
+			<directory>${project.build.directory}/repository/features</directory>
+			<outputDirectory>${project.groupId}-update-site/features </outputDirectory>
 		</fileSet>
 		<fileSet>
-			<directory>${symbol_dollar}{project.build.directory}/repository/plugins/</directory>
-			<outputDirectory>${symbol_dollar}{project.groupId}-update-site/plugins </outputDirectory>
+			<directory>${project.build.directory}/repository/plugins/</directory>
+			<outputDirectory>${project.groupId}-update-site/plugins </outputDirectory>
 		</fileSet>
 	</fileSets>
 	<files>
 		<file>
-			<source>${symbol_dollar}{project.basedir}/templates/update-site.ini</source>
+			<source>${project.basedir}/templates/update-site.ini</source>
 			<outputDirectory>.</outputDirectory>
-			<destName>${symbol_dollar}{project.groupId}-update-site.ini</destName>
+			<destName>${project.groupId}-update-site.ini</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>${symbol_dollar}{project.basedir}/templates/site.xml</source>
-			<outputDirectory>${symbol_dollar}{project.groupId}-update-site</outputDirectory>
+			<source>${project.basedir}/templates/site.xml</source>
+			<outputDirectory>${project.groupId}-update-site</outputDirectory>
 			<filtered>true</filtered>
 		</file>
 	</files>
