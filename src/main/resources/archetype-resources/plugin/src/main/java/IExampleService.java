@@ -6,6 +6,6 @@ package ${package};
 import com.ibm.team.repository.common.transport.ITeamRestService;
 
 @SuppressWarnings("WeakerAccess")
-public interface IExampleService extends ITeamRestService {
+public interface I${serviceName} extends ITeamRestService {
 
 }

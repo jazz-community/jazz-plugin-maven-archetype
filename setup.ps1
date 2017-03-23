@@ -1,6 +1,7 @@
 param (
     [string]$group = "com.siemens.example",
-    [string]$version = "1.0.0-SNAPSHOT"
+    [string]$version = "1.0.0-SNAPSHOT",
+    [string]$serviceName = "ExampleService"
 )
 
 mvn clean install
@@ -18,8 +19,12 @@ mvn archetype:generate -B `
     "-Dversion=1.0.0-SNAPSHOT" `
     "-DgroupId=$group" `
     "-DartifactId=$group.parent" `
-    "-Dpackage=$group"
+    "-Dpackage=$group" `
+    "-DserviceName=$serviceName"
 
 cd "$group.parent"
 
 mvn org.eclipse.tycho:tycho-versions-plugin:set-version "-DnewVersion=$version"
+
+# I guess renaming of files has to go here? At least googling didn't really
+# lead to a good solution...
