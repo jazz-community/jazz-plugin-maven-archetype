@@ -1,5 +1,5 @@
 # jazz-plugin-maven-archetype
-Maven archetype to generate a jazz plugin project.
+Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#Bootstrapping-a-new-jazz-service-using-this-archetype)
 
 All of the following sections make assumptions about your working environment. At least git and maven are absolutely necessary to use this archetype. The instructions assume that both executables are on your path and consequently useable with just the program name.
 
@@ -15,7 +15,7 @@ This section shows how to create an example service from the archetype. It uses 
 4. Inside the target folder, there should now be a folder named `com.siemens.example.parent` with the example service structure.
 5. You can now run `mvn package` from inside the `com.siemens.example.parent` folder to build the example service plugin.
 
-## Bootstrapping a new jazz service with the archetype
+## Bootstrapping a new jazz service using this archetype
 
 Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1-SNAPSHOT` and a service named `MyService`.
 
