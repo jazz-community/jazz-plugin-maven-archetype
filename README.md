@@ -27,21 +27,15 @@ For brevity, this section only covers files and folders that are relevant to und
 |------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------
 |<pre> com.siemens.example.parent                                              </pre>| 
 |<pre> │   pom.xml                                                             </pre>| Parent pom of the plugin build. This is what you want to run most of the time to get a complete plugin build.
-|<pre> │                                                                       </pre>| 
 |<pre> ├───.mvn                                                                </pre>| Maven settings folder
-|<pre> │                                                                       </pre>| 
 |<pre> ├───feature                                                             </pre>| Feature module folder
 |<pre> │   │   feature.xml                                                     </pre>| Feature configuration with required plugins, feature description and plugin definition
 |<pre> │   │   pom.xml                                                         </pre>| Sub module pom for creating the plugin feature files
-|<pre> │   │                                                                   </pre>| 
 |<pre> │   └───target                                                          </pre>| Generated feature files
-|<pre> │                                                                       </pre>| 
 |<pre> ├───plugin                                                              </pre>| Plugin module folder. This contains the source code for your plugin and is the most important sub module of the plugin project.
 |<pre> │   │   plugin.xml                                                      </pre>| Plugin definition. This is the file used by the application server to load your plugin. Contains the extension point and components used by our plugin to attach to the jazz application. Must contain the proper names of of your service.
 |<pre> │   │   pom.xml                                                         </pre>| Sub module pom for creating plugin files 
-|<pre> │   │                                                                   </pre>| 
 |<pre> │   ├───conf                                                            </pre>| Default jazz configuration files for use with an application server
-|<pre> │   │                                                                   </pre>| 
 |<pre> │   ├───META-INF                                                        </pre>| 
 |<pre> │   │       MANIFEST.MF                                                 </pre>| OSGI configuration of your plugin. Contains required bundles and imported packages as well as the bundle classpath. This needs to mirror the settings in your pom and contain all dependencies your plugin builds with.
 |<pre> │   │                                                                   </pre>| 
@@ -53,20 +47,15 @@ For brevity, this section only covers files and folders that are relevant to und
 |<pre> │   │                   └───example                                     </pre>| 
 |<pre> │   │                       │   ExampleService.java                     </pre>| The main service implementation. This file needs to be mentioned in the plugin.xml
 |<pre> │   │                       │   IExampleService.java                    </pre>| The main service interface. This file needs to be mentioned in the plugin.xml
-|<pre> │   │                       │                                           </pre>| 
 |<pre> │   │                       └───builder                                 </pre>| Builder implementations used for the example
-|<pre> │   │                                                                   </pre>| 
 |<pre> │   └───target                                                          </pre>| Generated plugin files. If you are using jetty, your service description will have to point to this location for proper loading.
 |<pre>\|       ├───dependency                                                  </pre>| Dependency jars. If you are using jetty, you will also have to reference this folder.
-|<pre> │                                                                       </pre>| 
 |<pre> ├───target                                                              </pre>| Generated parent build files
 |<pre> │                                                                       </pre>| 
 |<pre> └───update-site                                                         </pre>| Update site sub module. This aggregates all build results of the entire project and creates deployable zip files for production use with tomcat/liberty/websphere.
 |<pre>     │   pom.xml                                                         </pre>| Sub module pom for aggregating all modules as a deployable package.
-|<pre>     │                                                                   </pre>| 
 |<pre>     ├───target                                                          </pre>| Aggregated build results
-|<pre>     │   │   com.siemens.example.updatesite-1.0.0-SNAPSHOT.zip           </pre>| Deployable plugin. This can be extracted and used on your application server.
-|<pre>     │                                                                   </pre>| 
+|<pre>     │   └───com.siemens.example.updatesite-1.0.0-SNAPSHOT.zip           </pre>| Deployable plugin. This can be extracted and used on your application server.
 |<pre>     └───templates                                                       </pre>| Template xml files that are filtered during the build. These files are neccessary for generating the proper zip file structure for deploying the plugin on an application server.
 |<pre>         │     site.xml                                                  </pre>| Site descriptor for the loaded feature
 |<pre>         │     update-site.ini                                           </pre>| Update site description with file location and name of the feature to be loaded
