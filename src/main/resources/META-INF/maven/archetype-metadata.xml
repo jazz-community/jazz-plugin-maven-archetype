@@ -76,5 +76,18 @@
                 <include>category.xml</include>
             </includes>
         </fileSet>
+        <!-- test folder -->
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>test/</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+            <directory>test/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
     </fileSets>
 </archetype-descriptor>
