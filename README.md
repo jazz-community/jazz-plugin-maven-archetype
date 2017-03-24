@@ -1,5 +1,5 @@
 # jazz-plugin-maven-archetype
-Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#Bootstrapping-a-new-jazz-service-using-this-archetype)
+Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#bootstrapping-a-new-jazz-service-using-this-archetype)
 
 All of the following sections make assumptions about your working environment. At least git and maven are absolutely necessary to use this archetype. The instructions assume that both executables are on your path and consequently useable with just the program name.
 
