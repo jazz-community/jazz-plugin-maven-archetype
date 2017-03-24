@@ -22,145 +22,144 @@ For brevity, this section only covers files and folders that are relevant to und
 ## Detailed archetype usage
 
 ## File structure explanation (using the simple example)
-|File structure                                                            | Explanation
-|--------------------------------------------------------------------------|------------
-|`com.siemens.example.parent`                                              | 
-|`│   pom.xml`                                                             | 
-|`│`                                                                       | 
-|`├───.mvn`                                                                | 
-|`│       extensions.xml`                                                  | 
-|`│`                                                                       | 
-|`├───feature`                                                             | 
-|`│   │   build.properties`                                                | 
-|`│   │   feature.xml`                                                     | 
-|`│   │   pom.xml`                                                         | 
-|`│   │`                                                                   | 
-|`│   └───target`                                                          | 
-|`│       │   com.siemens.example.feature-1.0.0-SNAPSHOT.jar`              | 
-|`│       │   feature.xml`                                                 | 
-|`│       │   local-artifacts.properties`                                  | 
-|`│       │   p2artifacts.xml`                                             | 
-|`│       │   p2content.xml`                                               | 
-|`│       │`                                                               | 
-|`│       └───dependency`                                                  | 
-|`│               com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`    | 
-|`│               gson-2.7.jar`                                            | 
-|`│`                                                                       | 
-|`├───plugin`                                                              | 
-|`│   │   build.properties`                                                | 
-|`│   │   plugin.xml`                                                      | 
-|`│   │   pom.xml`                                                         | 
-|`│   │`                                                                   | 
-|`│   ├───conf`                                                            | 
-|`│   │       log4j.properties`                                            | 
-|`│   │       scr.xml`                                                     | 
-|`│   │       services.xml`                                                | 
-|`│   │       teamserver.properties`                                       | 
-|`│   │`                                                                   | 
-|`│   ├───META-INF`                                                        | 
-|`│   │`      MANIFEST.MF`                                                 | 
-|`│   │`                                                                   | 
-|`│   ├───src`                                                             | 
-|`│   │   └───main`                                                        | 
-|`│   │       └───java`                                                    | 
-|`│   │           └───com`                                                 | 
-|`│   │               └───siemens`                                         | 
-|`│   │                   └───example`                                     | 
-|`│   │                       │   ExampleService.java`                     | 
-|`│   │                       │   IExampleService.java`                    | 
-|`│   │                       │`                                           | 
-|`│   │                       └───builder`                                 | 
-|`│   │                               HelloWorldPostService.java`          | 
-|`│   │                               HelloWorldService.java`              | 
-|`│   │`                                                                   | 
-|`│   └───target`                                                          | 
-|`│       │   com.siemens.example-1.0.0-SNAPSHOT.jar`                      | 
-|`│       │   local-artifacts.properties`                                  | 
-|`│       │   MANIFEST.MF`                                                 | 
-|`│       │   p2artifacts.xml`                                             | 
-|`│       │   p2content.xml`                                               | 
-|`│       │`                                                               | 
-|`│       ├───classes`                                                     | 
-|`│       │   └───com`                                                     | 
-|`│       │       └───siemens`                                             | 
-|`│       │           └───example`                                         | 
-|`│       │               │   ExampleService.class`                        | 
-|`│       │               │   IExampleService.class`                       | 
-|`│       │               │`                                               | 
-|`│       │               └───builder`                                     | 
-|`│       │                       HelloWorldPostService.class`             | 
-|`│       │                       HelloWorldService.class`                 | 
-|`│       │`                                                               | 
-|`│       ├───dependency`                                                  | 
-|`│       │       com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`    | 
-|`│       │       gson-2.7.jar`                                            | 
-|`│       │`                                                               | 
-|`│       ├───generated-sources`                                           | 
-|`│       │   └───annotations`                                             | 
-|`│       └───maven-archiver`                                              | 
-|`│               pom.properties`                                          | 
-|`│`                                                                       | 
-|`├───target`                                                              | 
-|`│   └───dependency`                                                      | 
-|`│           com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`        | 
-|`│           gson-2.7.jar`                                                | 
-|`│`                                                                       | 
-|`└───update-site`                                                         | 
-|`    │   category.xml`                                                    | 
-|`    │   pom.xml`                                                         | 
-|`    │`                                                                   | 
-|`    ├───target`                                                          | 
-|`    │   │   category.xml`                                                | 
-|`    │   │   com.siemens.example.updatesite-1.0.0-SNAPSHOT.zip`           | 
-|`    │   │   local-artifacts.properties`                                  | 
-|`    │   │   p2artifacts.xml`                                             | 
-|`    │   │   p2content.xml`                                               | 
-|`    │   │`                                                               | 
-|`    │   ├───archive-tmp`                                                 | 
-|`    │   │       site.xml.1772659599.filtered`                            | 
-|`    │   │       update-site.ini.759812096.filtered`                      | 
-|`    │   │`                                                               | 
-|`    │   ├───classes`                                                     | 
-|`    │   │       deployment-properties.ini`                               | 
-|`    │   │`                                                               | 
-|`    │   ├───dependency`                                                  | 
-|`    │   │       com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`    | 
-|`    │   │       gson-2.7.jar`                                            | 
-|`    │   │`                                                               | 
-|`    │   ├───p2agent`                                                     | 
-|`    │   │   ├───org.eclipse.equinox.p2.core`                             | 
-|`    │   │   │   └───cache`                                               | 
-|`    │   │   │           artifacts.xml`                                   | 
-|`    │   │   │`                                                           | 
-|`    │   │   └───org.eclipse.equinox.p2.engine`                           | 
-|`    │   │       ├───.settings`                                           | 
-|`    │   │       │       org.eclipse.equinox.p2.artifact.repository.prefs`| 
-|`    │   │       │       org.eclipse.equinox.p2.metadata.repository.prefs`| 
-|`    │   │       │`                                                       | 
-|`    │   │       └───profileRegistry`                                     | 
-|`    │   ├───repository`                                                  | 
-|`    │   │   │   artifacts.jar`                                           | 
-|`    │   │   │   artifacts.xml.xz`                                        | 
-|`    │   │   │   content.jar`                                             | 
-|`    │   │   │   content.xml.xz`                                          | 
-|`    │   │   │   deployment-properties.ini`                               | 
-|`    │   │   │   p2.index`                                                | 
-|`    │   │   │`                                                           | 
-|`    │   │   ├───features`                                                | 
-|`    │   │   │       com.siemens.example.feature_1.0.0.201703240807.jar`  | 
-|`    │   │   │`                                                           | 
-|`    │   │   └───plugins`                                                 | 
-|`    │   │           com.siemens.example_1.0.0.201703240807.jar`          | 
-|`    │   │`                                                               | 
-|`    │   └───targetPlatformRepository`                                    | 
-|`    │           content.xml`                                             | 
-|`    │`                                                                   | 
-|`    └───templates`                                                       | 
-|`        │   site.xml`                                                    | 
-|`        │   update-site.ini`                                             | 
-|`        │   zip.xml`                                                     | 
-|`        │`                                                               | 
-|`        └───deployment`                                                  | 
-|`                deployment-properties.ini`                               | 
-
+|File structure                                                                      | Explanation
+|------------------------------------------------------------------------------------|------------
+|<pre>`com.siemens.example.parent`                                             </pre>| 
+|<pre>`│   pom.xml`                                                            </pre>| 
+|`│`                                                                                 | 
+|<pre>`├───.mvn`                                                               </pre>|
+|<pre>`│       extensions.xml`                                                 </pre>| 
+|`│`                                                                                 | 
+|<pre>`├───feature`                                                            </pre>| 
+|<pre>`│   │   build.properties`                                               </pre>| 
+|<pre>`│   │   feature.xml`                                                    </pre>| 
+|<pre>`│   │   pom.xml`                                                        </pre>| 
+|<pre>`│   │`                                                                  </pre>| 
+|<pre>`│   └───target`                                                         </pre>| 
+|<pre>`│       │   com.siemens.example.feature-1.0.0-SNAPSHOT.jar`             </pre>| 
+|<pre>`│       │   feature.xml`                                                </pre>| 
+|<pre>`│       │   local-artifacts.properties`                                 </pre>| 
+|<pre>`│       │   p2artifacts.xml`                                            </pre>| 
+|<pre>`│       │   p2content.xml`                                              </pre>| 
+|<pre>`│       │`                                                              </pre>| 
+|<pre>`│       └───dependency`                                                 </pre>| 
+|<pre>`│               com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`   </pre>| 
+|<pre>`│               gson-2.7.jar`                                           </pre>| 
+|`│`                                                                                 | 
+|<pre>`├───plugin`                                                             </pre>| 
+|<pre>`│   │   build.properties`                                               </pre>| 
+|<pre>`│   │   plugin.xml`                                                     </pre>| 
+|<pre>`│   │   pom.xml`                                                        </pre>| 
+|<pre>`│   │`                                                                  </pre>| 
+|<pre>`│   ├───conf`                                                           </pre>| 
+|<pre>`│   │       log4j.properties`                                           </pre>| 
+|<pre>`│   │       scr.xml`                                                    </pre>| 
+|<pre>`│   │       services.xml`                                               </pre>| 
+|<pre>`│   │       teamserver.properties`                                      </pre>| 
+|<pre>`│   │`                                                                  </pre>| 
+|<pre>`│   ├───META-INF`                                                       </pre>| 
+|<pre>`│   │       MANIFEST.MF`                                                </pre>| 
+|<pre>`│   │`                                                                  </pre>| 
+|<pre>`│   ├───src`                                                            </pre>| 
+|<pre>`│   │   └───main`                                                       </pre>| 
+|<pre>`│   │       └───java`                                                   </pre>| 
+|<pre>`│   │           └───com`                                                </pre>| 
+|<pre>`│   │               └───siemens`                                        </pre>| 
+|<pre>`│   │                   └───example`                                    </pre>| 
+|<pre>`│   │                       │   ExampleService.java`                    </pre>| 
+|<pre>`│   │                       │   IExampleService.java`                   </pre>| 
+|<pre>`│   │                       │`                                          </pre>| 
+|<pre>`│   │                       └───builder`                                </pre>| 
+|<pre>`│   │                               HelloWorldPostService.java`         </pre>| 
+|<pre>`│   │                               HelloWorldService.java`             </pre>| 
+|<pre>`│   │`                                                                  </pre>| 
+|<pre>`│   └───target`                                                         </pre>| 
+|<pre>`│       │   com.siemens.example-1.0.0-SNAPSHOT.jar`                     </pre>| 
+|<pre>`│       │   local-artifacts.properties`                                 </pre>| 
+|<pre>`│       │   MANIFEST.MF`                                                </pre>| 
+|<pre>`│       │   p2artifacts.xml`                                            </pre>| 
+|<pre>`│       │   p2content.xml`                                              </pre>| 
+|<pre>`│       │`                                                              </pre>| 
+|<pre>`│       ├───classes`                                                    </pre>| 
+|<pre>`│       │   └───com`                                                    </pre>| 
+|<pre>`│       │       └───siemens`                                            </pre>| 
+|<pre>`│       │           └───example`                                        </pre>| 
+|<pre>`│       │               │   ExampleService.class`                       </pre>| 
+|<pre>`│       │               │   IExampleService.class`                      </pre>| 
+|<pre>`│       │               │`                                              </pre>| 
+|<pre>`│       │               └───builder`                                    </pre>| 
+|<pre>`│       │                       HelloWorldPostService.class`            </pre>| 
+|<pre>`│       │                       HelloWorldService.class`                </pre>| 
+|<pre>`│       │`                                                              </pre>| 
+|<pre>`│       ├───dependency`                                                 </pre>| 
+|<pre>`│       │       com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`   </pre>| 
+|<pre>`│       │       gson-2.7.jar`                                           </pre>| 
+|<pre>`│       │`                                                              </pre>| 
+|<pre>`│       ├───generated-sources`                                          </pre>| 
+|<pre>`│       │   └───annotations`                                            </pre>| 
+|<pre>`│       └───maven-archiver`                                             </pre>| 
+|<pre>`│               pom.properties`                                         </pre>| 
+|<pre>`│`                                                                      </pre>| 
+|<pre>`├───target`                                                             </pre>| 
+|<pre>`│   └───dependency`                                                     </pre>| 
+|<pre>`│           com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`       </pre>| 
+|<pre>`│           gson-2.7.jar`                                               </pre>| 
+|<pre>`│`                                                                      </pre>| 
+|<pre>`└───update-site`                                                        </pre>| 
+|<pre>`    │   category.xml`                                                   </pre>| 
+|<pre>`    │   pom.xml`                                                        </pre>| 
+|<pre>`    │`                                                                  </pre>| 
+|<pre>`    ├───target`                                                         </pre>| 
+|<pre>`    │   │   category.xml`                                               </pre>| 
+|<pre>`    │   │   com.siemens.example.updatesite-1.0.0-SNAPSHOT.zip`          </pre>| 
+|<pre>`    │   │   local-artifacts.properties`                                 </pre>| 
+|<pre>`    │   │   p2artifacts.xml`                                            </pre>| 
+|<pre>`    │   │   p2content.xml`                                              </pre>| 
+|<pre>`    │   │`                                                              </pre>| 
+|<pre>`    │   ├───archive-tmp`                                                </pre>| 
+|<pre>`    │   │       site.xml.1772659599.filtered`                           </pre>| 
+|<pre>`    │   │       update-site.ini.759812096.filtered`                     </pre>| 
+|<pre>`    │   │`                                                              </pre>| 
+|<pre>`    │   ├───classes`                                                    </pre>| 
+|<pre>`    │   │       deployment-properties.ini`                              </pre>| 
+|<pre>`    │   │`                                                              </pre>| 
+|<pre>`    │   ├───dependency`                                                 </pre>| 
+|<pre>`    │   │       com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar`   </pre>| 
+|<pre>`    │   │       gson-2.7.jar`                                           </pre>| 
+|<pre>`    │   │`                                                              </pre>| 
+|<pre>`    │   ├───p2agent`                                                    </pre>| 
+|<pre>`    │   │   ├───org.eclipse.equinox.p2.core`                            </pre>| 
+|<pre>`    │   │   │   └───cache`                                              </pre>| 
+|<pre>`    │   │   │           artifacts.xml`                                  </pre>| 
+|<pre>`    │   │   │`                                                          </pre>| 
+|<pre>`    │   │   └───org.eclipse.equinox.p2.engine`                          </pre>| 
+|<pre>`    │   │       ├───.settings`                                          </pre>| 
+|<pre>`    │   │       │       org.eclipse.equinox.p2.artifact.repository.prefs</pre>| 
+|<pre>`    │   │       │       org.eclipse.equinox.p2.metadata.repository.prefs</pre>| 
+|<pre>`    │   │       │`                                                      </pre>| 
+|<pre>`    │   │       └───profileRegistry`                                    </pre>| 
+|<pre>`    │   ├───repository`                                                 </pre>| 
+|<pre>`    │   │   │   artifacts.jar`                                          </pre>| 
+|<pre>`    │   │   │   artifacts.xml.xz`                                       </pre>| 
+|<pre>`    │   │   │   content.jar`                                            </pre>| 
+|<pre>`    │   │   │   content.xml.xz`                                         </pre>| 
+|<pre>`    │   │   │   deployment-properties.ini`                              </pre>| 
+|<pre>`    │   │   │   p2.index`                                               </pre>| 
+|<pre>`    │   │   │`                                                          </pre>| 
+|<pre>`    │   │   ├───features`                                               </pre>| 
+|<pre>`    │   │   │       com.siemens.example.feature_1.0.0.201703240807.jar` </pre>| 
+|<pre>`    │   │   │`                                                          </pre>| 
+|<pre>`    │   │   └───plugins`                                                </pre>| 
+|<pre>`    │   │           com.siemens.example_1.0.0.201703240807.jar`         </pre>| 
+|<pre>`    │   │`                                                              </pre>| 
+|<pre>`    │   └───targetPlatformRepository`                                   </pre>| 
+|<pre>`    │           content.xml`                                            </pre>| 
+|<pre>`    │`                                                                  </pre>| 
+|<pre>`    └───templates`                                                      </pre>| 
+|<pre>`        │   site.xml`                                                   </pre>| 
+|<pre>`        │   update-site.ini`                                            </pre>| 
+|<pre>`        │   zip.xml`                                                    </pre>| 
+|<pre>`        │`                                                              </pre>| 
+|<pre>`        └───deployment`                                                 </pre>| 
+|<pre>`                deployment-properties.ini`                              </pre>| 
 
