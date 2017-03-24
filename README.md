@@ -38,7 +38,6 @@ For brevity, this section only covers files and folders that are relevant to und
 |<pre> │   ├───conf                                                            </pre>| Default jazz configuration files for use with an application server
 |<pre> │   ├───META-INF                                                        </pre>| 
 |<pre> │   │       MANIFEST.MF                                                 </pre>| OSGI configuration of your plugin. Contains required bundles and imported packages as well as the bundle classpath. This needs to mirror the settings in your pom and contain all dependencies your plugin builds with.
-|<pre> │   │                                                                   </pre>| 
 |<pre> │   ├───src                                                             </pre>| Actual plugin source code
 |<pre> │   │   └───main                                                        </pre>| 
 |<pre> │   │       └───java                                                    </pre>| 
@@ -51,7 +50,6 @@ For brevity, this section only covers files and folders that are relevant to und
 |<pre> │   └───target                                                          </pre>| Generated plugin files. If you are using jetty, your service description will have to point to this location for proper loading.
 |<pre>\|       ├───dependency                                                  </pre>| Dependency jars. If you are using jetty, you will also have to reference this folder.
 |<pre> ├───target                                                              </pre>| Generated parent build files
-|<pre> │                                                                       </pre>| 
 |<pre> └───update-site                                                         </pre>| Update site sub module. This aggregates all build results of the entire project and creates deployable zip files for production use with tomcat/liberty/websphere.
 |<pre>     │   pom.xml                                                         </pre>| Sub module pom for aggregating all modules as a deployable package.
 |<pre>     ├───target                                                          </pre>| Aggregated build results
