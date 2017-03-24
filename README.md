@@ -57,7 +57,7 @@ For brevity, this section only covers files and folders that are relevant to und
 |<pre> │   │                       └───builder                                 </pre>| Builder implementations used for the example
 |<pre> │   │                                                                   </pre>| 
 |<pre> │   └───target                                                          </pre>| Generated plugin files. If you are using jetty, your service description will have to point to this location for proper loading.
-|<pre> |       ├───dependency                                                  </pre>| Dependency jars. If you are using jetty, you will also have to reference this folder.
+|<pre>\|       ├───dependency                                                  </pre>| Dependency jars. If you are using jetty, you will also have to reference this folder.
 |<pre> │                                                                       </pre>| 
 |<pre> ├───target                                                              </pre>| Generated parent build files
 |<pre> │                                                                       </pre>| 
