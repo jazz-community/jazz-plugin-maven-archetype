@@ -21,13 +21,9 @@ For brevity, this section only covers files and folders that are relevant to und
 
 ## Detailed archetype usage
 
-| random table | another heading|
-|--------------|----------------|
-| content 1    | content 2      |
-
 ## File structure explanation (using the simple example)
 |File structure                                                            | Explanation
-|---------------------------------------------------------------------------------------
+|--------------------------------------------------------------------------|------------
 |`com.siemens.example.parent`                                              | 
 |`│   pom.xml`                                                             | 
 |`│`                                                                       | 
