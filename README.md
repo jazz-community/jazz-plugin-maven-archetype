@@ -23,7 +23,7 @@ TODO: add bash example
 
 1. Clone this repository.
 2. Run setup.ps1, but this time passing values to all parameters (chose your own values):
-    .\setup.ps1 -group org.company.example -version 0.0.1-SNAPSHOT -serviceName MyService
+   `.\setup.ps1 -group org.company.example -version 0.0.1-SNAPSHOT -serviceName MyService`
 3. As above, this will place a plugin folder structure called `org.company.example.parent` in the target folder.
 4. Copy this folder to wherever you want to work on your plugin.
 5. Run `mvn package` to build the plugin files required to run the plugin as a service from this location.
@@ -33,10 +33,10 @@ TODO: add bash example
 When using jetty, the `plugin/` and `plugin/target` folders should be used for run-time dynamic lookup. The files edited here should be located in your `debug-environment/conf/jetty/user_configs` folder.
 
 6. Add a property value (or a new file dedicated to just this property) which states which folders your plugin files are in. For the example generated here, it would look like this:
-    org.company.example=target/dependency,target/classes
+    `org.company.example=target/dependency,target/classes`
 7. Add the location of your **plugin** folder to your list of workspaces. It is essential that you reference the plugin folder containing your plugin.xml here. (Windows folder location used as an example).
-    D\:/workspaces/org.company.example.parent/plugin@start
-8. Run the generate_jetty_config script.
+    `D\:/workspaces/org.company.example.parent/plugin@start`
+8. Run the `generate_jetty_config` script.
 9. Run jetty
 10. After jetty has started, you can verify that your service is running by opening the services page, for example `https://localhost:7443/jazz/service/` and locating your service. You can also call the service directly, for example `https://localhost:7443/jazz/service/org.company.example.IMyService/helloWorld`, which will show a website saying `Hello World!!!`
 
