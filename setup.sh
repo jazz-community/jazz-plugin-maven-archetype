@@ -10,7 +10,7 @@ group="com.siemens.example"
 serviceName="ExampleService"
 version="1.0.0-SNAPSHOT"
 
-# handle parameters
+# handle optional parameters
 while true; do
     case "$1" in
         -g | --group        ) group="$2";       shift; shift;;
@@ -23,6 +23,11 @@ done
 
 mvn clean install
 
+if [ $? -ne 0 ]; then
+    echo "Maven failed, check log"
+    exit 1
+fi
+
 cd target
 
 mvn archetype:generate -B \
@@ -34,6 +39,11 @@ mvn archetype:generate -B \
     "-DartifactId=$group.parent" \
     "-Dpackage=$group" \
     "-DserviceName=$serviceName"
+
+if [ $? -ne 0 ]; then
+    echo "Maven failed, check log"
+    exit 1
+fi
 
 cd "$group.parent"
 
