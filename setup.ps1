@@ -1,9 +1,9 @@
 param (
-    [string]$group = "com.siemens.example",
-    [string]$version = "1.0.0-SNAPSHOT",
+    [Alias('g')][string]$group = "com.siemens.example",
+    [Alias('v')][string]$version = "1.0.0-SNAPSHOT",
     # maybe make sure that the service name is always
     # capitalized?
-    [string]$serviceName = "ExampleService"
+    [Alias('s')][string]$serviceName = "ExampleService"
 )
 
 mvn clean install
