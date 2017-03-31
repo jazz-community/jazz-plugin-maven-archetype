@@ -33,7 +33,7 @@ cd target
 mvn archetype:generate -B \
     "-DarchetypeCatalog=local" \
     "-DarchetypeGroupId=com.siemens.bt.jazz.services.archetype" \
-    "-DarchetypeArtifactId=com.siemens.bt.jazz.services.archetype.parent" \
+    "-DarchetypeArtifactId=com.siemens.bt.jazz.services.archetype" \
     "-Dversion=1.0.0-SNAPSHOT" \
     "-DgroupId=$group" \
     "-DartifactId=$group.parent" \

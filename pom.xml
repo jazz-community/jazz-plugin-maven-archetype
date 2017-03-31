@@ -3,11 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.siemens.bt.jazz.services.archetype</groupId>
-  <artifactId>com.siemens.bt.jazz.services.archetype.parent</artifactId>
+  <artifactId>com.siemens.bt.jazz.services.archetype</artifactId>
   <version>1.0.1-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>com.siemens.bt.jazz.services.cqrest.parent-archetype</name>
+  <name>com.siemens.bt.jazz.services.archetype</name>
+
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <build>
     <extensions>
