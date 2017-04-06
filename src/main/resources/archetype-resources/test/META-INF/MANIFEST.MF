@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ${groupId}
+Bundle-SymbolicName: ${groupId};singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: VENDOR
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.junit
+Bundle-ClassPath: target/dependency/junit-4.12.jar,
+ target/dependency/hamcrest-core-1.3.jar,
+ .
