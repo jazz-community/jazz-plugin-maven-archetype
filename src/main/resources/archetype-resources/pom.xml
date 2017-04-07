@@ -101,6 +101,21 @@
                 </configuration>
             </plugin>
         </plugins>
-
+        <!-- Uncomment this section if you make use of restricted API
+        [ERROR] Access restriction: The method 'IProcessArea.getProjectArea()' is not API -->
+        <!--
+	<pluginManagement>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.eclipse.tycho</groupId>
+	            <artifactId>tycho-compiler-plugin</artifactId>
+	            <version>${tycho-version}</version>
+	            <configuration>
+	                <encoding>UTF-8</encoding>
+	                <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
+	            </configuration>
+	        </plugin>
+	    </plugins>
+       	</pluginManagement>-->
     </build>
 </project>
