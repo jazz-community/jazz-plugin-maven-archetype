@@ -28,7 +28,9 @@ Require-Bundle:
  com.ibm.team.jfs.app.http.client,
  com.ibm.team.jfs.app.util,
  com.ibm.team.jfs.app.resource,
- com.ibm.team.jfs.app.error
+ com.ibm.team.jfs.app.error,
+ com.ibm.team.process.common,
+ com.ibm.team.process.service
 Bundle-ClassPath: target/dependency/gson-2.7.jar,
  target/dependency/com.siemens.bt.jazz.services.base-1.0.1-SNAPSHOT.jar, 
  .
