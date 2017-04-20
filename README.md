@@ -86,3 +86,5 @@ For brevity, this section only covers files and folders that are relevant to und
 |<pre>         │     update-site.ini                                           </pre>| Update site description with file location and name of the feature to be loaded
 |<pre>         └───  zip.xml                                                   </pre>| Zip file structure of the resulting plugin
 
+# Notes for updating:
+Jar versions have to be changed in the manifest files as well.
