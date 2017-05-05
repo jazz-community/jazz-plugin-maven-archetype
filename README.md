@@ -43,6 +43,7 @@ When deploying to a jazz instance running on an application server, you can depl
 2. Extract the `packagename-update-site.ini` **file** from the zip file to the `server/conf/ccm/provision_profiles` directory (where packagename is the package of your service)
 3. Extract the `packagename-update-site` **folder** to the `server/conf/ccm/sites` directory (where packagename is the package of your service)
 4. Restart the server
+5. Once the server has been restarted, your service should be available. You can reach your service under the application it has been deployed with. For example, if you deployed your plugin on ccm, you should find your service on the service description page: `https://server.url/ccm/service`. You can also locate your service directly with it's interface name, such as `https://server.url/ccm/service/com.siemens.example.IExampleService`. Any urls that have been added to the router append to this service url, so if you want to call the `HelloWorldService` , you would call `https://server.url/ccm/service/com.siemens.example.IExampleService/helloWorld`.
 
 ### Update existing installation
 When you rebuild the plugon after changing your implementation, you will have to redeploy.
