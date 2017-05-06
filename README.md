@@ -1,14 +1,15 @@
-# jazz-plugin-maven-archetype
-Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#bootstrapping-a-new-jazz-service-using-this-archetype)
+# Jazz Plugin Maven Archetype <br /> Bootstrapping new Jazz Services was never so easy!
+Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#bootstrapping-a-new-jazz-service-using-this-archetype)<br />
+([What is Archetype?](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html))
 
 All of the following sections make assumptions about your working environment. At least git and maven are absolutely necessary to use this archetype. The instructions assume that both executables are on your path and consequently useable with just the program name.
 
-Further, you will need to have installed the [jazz base service](URL), which is a dependency for any services created with this archetype. Any maven builds without this dependency available in your local maven repository will fail. Also, you need to have the [jazz sdk p2 repository](https://github.com/jazz-community/jazz-p2-repository-converter) available in your maven repository. It is also suggested that you have the [jazz debug environment](https://github.com/jazz-community/jazz-debug-environment) available for a rapid development and test cycle.
+Further, you will need to have installed the [Jazz Base Service](https://github.com/jazz-community/jazz-plugin-base-service), which is a dependency for any services created with this archetype. Any maven builds without this dependency available in your local maven repository will fail. Also, you need to have the [jazz sdk p2 repository](https://github.com/jazz-community/jazz-p2-repository-converter) available in your maven repository. It is also suggested that you have the [Jazz Debug Environment](https://github.com/jazz-community/jazz-debug-environment) available for a rapid development and test cycle.
 
 ## Example archetype usage
-This section shows how to create an example service from the archetype. It uses default settings and is absolutely not recommended for usage in a productive environment and only serves as an example.
+This section shows how to create an example service from the archetype. It uses default settings and is therefore not recommended for usage in a productive environment without reviewing it carefully and hence only serves as an example.
 
-1. Clone this repository. `git clone git@github.com:SBI-/jazz-plugin-maven-archetype.git`
+1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run `setup.ps1` / `setup.sh`
 3. Three consecutive successful maven build cycles should run.
 4. Inside the target folder, there should now be a folder named `com.siemens.example.parent` with the example service structure.
@@ -17,7 +18,7 @@ This section shows how to create an example service from the archetype. It uses 
 ## Bootstrapping a new jazz service using this archetype
 Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1-SNAPSHOT` and a service named `MyService`.
 
-1. Clone this repository. `git clone `
+1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run the setup script, but this time passing values to all parameters (chose your own values, short parameters are available):
     * Windows: `.\setup.ps1 -group org.siemens.example -version 0.0.1-SNAPSHOT -serviceName GitHubExampleService`
     * Linux: `./setup.sh --group com.siemens.example --serviceName GitHubExampleService --version 0.0.1-SNAPSHOT`
@@ -27,7 +28,7 @@ Using paramters when running the automated setup, a new service can be created w
 
 ## Running tests
 To run your unit tests, run `mvn integration-test`.
-Although the tests are standard junit unit tests, they are run in the integration-test phase because of the tycho-surefire plugin. This makes it possible to use and especially mock many dependencies that would otherwise be unavailable. For a more in-depth look at how you can use this to your advance, look at the tests in the [base service project](https://github.com/jazz-community/jazz-plugin-base-service).
+Although the tests are standard junit unit tests, they are run in the integration-test phase because of the tycho-surefire plugin. This makes it possible to use and especially mock many dependencies that would otherwise be unavailable. For a more in-depth look at how you can use this to your advance, look at the tests in the [Base Service project](https://github.com/jazz-community/jazz-plugin-base-service).
 
 Unless you are looking to use special features, you can write your tests like you would any other regular junit unit tests.
 
@@ -60,7 +61,7 @@ When you rebuild the plugon after changing your implementation, you will have to
 For more information about deploying extensions, check out [Ralph Schoon's blog](https://rsjazz.wordpress.com/2014/06/12/is-the-extension-deployed-how-can-i-redeploy/)
 
 ### For jetty
-When using jetty with the [jazz development environment](https://github.com/jazz-community/jazz-debug-environment), the `plugin/` and `plugin/target` folders should be used for run-time dynamic lookup. The files edited here should be located in your `debug-environment/conf/jetty/user_configs` folder.
+When using jetty with the [Jazz Development Environment](https://github.com/jazz-community/jazz-debug-environment), the `plugin/` and `plugin/target` folders should be used for run-time dynamic lookup. The files edited here should be located in your `debug-environment/conf/jetty/user_configs` folder.
 
 1. Add a property value (or a new file dedicated to just this property) which states which folders your plugin files are in. For the example generated here, it would look like this:
     `org.company.example=target/dependency,target/classes`
