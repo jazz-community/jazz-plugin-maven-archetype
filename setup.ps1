@@ -1,10 +1,15 @@
 param (
-    [Alias('g')][string]$group = "com.siemens.example",
+    [Alias('g')][string]$group,
     [Alias('v')][string]$version = "1.0.0-SNAPSHOT",
     # maybe make sure that the service name is always
     # capitalized?
     [Alias('s')][string]$serviceName = "ExampleService"
 )
+
+if (!$group) {
+    echo "Missing argument 'group'."
+    exit 1
+}
 
 mvn clean install
 

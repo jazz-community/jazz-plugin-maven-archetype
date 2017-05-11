@@ -1,4 +1,4 @@
-# Jazz Plugin Maven Archetype <br /> Bootstrapping new Jazz Services was never so easy!
+# Jazz Plugin Maven Archetype <br /> Bootstrapping new Jazz Services was never easier!
 Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#bootstrapping-a-new-jazz-service-using-this-archetype)<br />
 ([What is Archetype?](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html))
 
@@ -10,7 +10,9 @@ Further, you will need to have installed the [Jazz Base Service](https://github.
 This section shows how to create an example service from the archetype. It uses default settings and is therefore not recommended for usage in a productive environment without reviewing it carefully and hence only serves as an example.
 
 1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
-2. Run `setup.ps1` / `setup.sh`
+2. Run the setup script
+    * Windows: `.\setup.ps1 -g org.siemens.example`
+    * Linux: `./setup.sh`
 3. Three consecutive successful maven build cycles should run.
 4. Inside the target folder, there should now be a folder named `com.siemens.example.parent` with the example service structure.
 5. You can now run `mvn package` from inside the `target/com.siemens.example.parent` folder to build the example service plugin.
@@ -27,8 +29,7 @@ Using paramters when running the automated setup, a new service can be created w
 5. Run `mvn package` to build the plugin files required to run the plugin as a service from this location, or run `mvn install` to make the package available in your maven repository.
 
 ## Running tests
-To run your unit tests, run `mvn integration-test`.
-Although the tests are standard junit unit tests, they are run in the integration-test phase because of the tycho-surefire plugin. This makes it possible to use and especially mock many dependencies that would otherwise be unavailable. For a more in-depth look at how you can use this to your advance, look at the tests in the [Base Service project](https://github.com/jazz-community/jazz-plugin-base-service).
+To run your unit tests, run `mvn integration-test`. Although the tests are standard junit unit tests, they are run in the integration-test phase because of the tycho-surefire plugin. This makes it possible to use and especially mock many dependencies that would otherwise be unavailable. For a more in-depth look at how you can use this to your advance, look at the tests in the [Base Service project](https://github.com/jazz-community/jazz-plugin-base-service).
 
 Unless you are looking to use special features, you can write your tests like you would any other regular junit unit tests.
 
