@@ -7,22 +7,22 @@ All of the following sections make assumptions about your working environment. A
 Further, you will need to have installed the [Jazz Base Service](https://github.com/jazz-community/jazz-plugin-base-service), which is a dependency for any services created with this archetype. Any maven builds without this dependency available in your local maven repository will fail. Also, you need to have the [jazz sdk p2 repository](https://github.com/jazz-community/jazz-p2-repository-converter) available in your maven repository. It is also suggested that you have the [Jazz Debug Environment](https://github.com/jazz-community/jazz-debug-environment) available for a rapid development and test cycle.
 
 ## Example archetype usage
-This section shows how to create an example service from the archetype. It uses default settings and is therefore not recommended for usage in a productive environment without reviewing it carefully and hence only serves as an example.
+This section shows how to create an example service from the archetype. It uses default settings and is therefore not recommended for usage in a productive environment without reviewing it carefully. Hence, it only serves as an example.
 
 1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run the setup script
-    * Windows: `.\setup.ps1 -g org.siemens.example`
+    * Windows Powershell: `.\setup.ps1 -g org.siemens.example`
     * Linux: `./setup.sh`
 3. Three consecutive successful maven build cycles should run.
 4. Inside the target folder, there should now be a folder named `com.siemens.example.parent` with the example service structure.
 5. You can now run `mvn package` from inside the `target/com.siemens.example.parent` folder to build the example service plugin.
 
 ## Bootstrapping a new jazz service using this archetype
-Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1-SNAPSHOT` and a service named `MyService`.
+Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1-SNAPSHOT` and a service named `GitHubExampleService`.
 
 1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run the setup script, but this time passing values to all parameters (chose your own values, short parameters are available):
-    * Windows: `.\setup.ps1 -group org.siemens.example -version 0.0.1-SNAPSHOT -serviceName GitHubExampleService`
+    * Windows Powershell: `.\setup.ps1 -group org.siemens.example -version 0.0.1-SNAPSHOT -serviceName GitHubExampleService`
     * Linux: `./setup.sh --group com.siemens.example --serviceName GitHubExampleService --version 0.0.1-SNAPSHOT`
 3. As above, this will place a plugin folder structure called `org.siemens.example.parent` in the target folder.
 4. Copy this folder to wherever you want to work on your plugin.
@@ -45,10 +45,10 @@ When deploying to a jazz instance running on an application server, you can depl
 2. Extract the `packagename-update-site.ini` **file** from the zip file to the `server/conf/ccm/provision_profiles` directory (where packagename is the package of your service)
 3. Extract the `packagename-update-site` **folder** to the `server/conf/ccm/sites` directory (where packagename is the package of your service)
 4. Restart the server
-5. Once the server has been restarted, your service should be available. You can reach your service under the application it has been deployed with. For example, if you deployed your plugin on ccm, you should find your service on the service description page: `https://server.url/ccm/service`. You can also locate your service directly with it's interface name, such as `https://server.url/ccm/service/com.siemens.example.IExampleService`. Any urls that have been added to the router append to this service url, so if you want to call the `HelloWorldService` , you would call `https://server.url/ccm/service/com.siemens.example.IExampleService/helloWorld`.
+5. Once the server has been restarted, your service should be available. You can reach your service under the application it has been deployed with. For example, if you deployed your plugin on ccm, you should find your service on the service description page: `https://server.url/ccm/service`. You can also locate your service directly with it's interface name, such as `https://server.url/ccm/service/com.siemens.example.IExampleService`. Any urls that have been added to the router append to this service url, so if you want to call the `HelloWorldService`, you would call `https://server.url/ccm/service/com.siemens.example.IExampleService/helloWorld`.
 
 ### Update existing installation
-When you rebuild the plugon after changing your implementation, you will have to redeploy.
+Whenever you rebuild the plugin after changing your implementation, you will have to redeploy.
 
 1. Request a server reset in one of the following ways:
     * If the server is currently running, call `https://server-address/ccm/admin/cmd/requestReset`
@@ -102,15 +102,15 @@ When using this approach, you will have to manually set all versions (in all pom
 For details on the archetype command line, see either the `setup.sh` or the `setup.ps1` files.
 
 ## File structure explanation (using the simple example)
-For brevity, this section only covers files and folders that are relevant to understanding the basic structure generated by the archetype (not the file structure of the actual archetype). A finished build will contain more files. files not mentioned here will generally not need to be touched when working on your plugin.
+For brevity, this section only covers files and folders that are relevant to understanding the basic structure generated by the archetype (not the file structure of the actual archetype). A finished build will contain more files. Files not mentioned here will generally not need to be touched when working on your plugin.
 
 ```
 com.siemens.example.parent
 │ pom.xml                                       Parent pom of the plugin build. This is what you want
 |                                               to run most of the time to get a complete plugin build
 │
-├─.mvn
-│  extensions.xml                               Maven settings folder
+├─.mvn                                          Maven settings folder
+│  extensions.xml
 │
 ├─feature                                       Feature module folder
 |  |
@@ -118,15 +118,16 @@ com.siemens.example.parent
 |  |                                            description and plugin definition
 |  |
 │  | pom.xml                                    Sub module pom for creating the plugin feature files
+|  |
 │  target                                       Generated feature files
 |
-├─plugin                                        Plugin module folder. This contains the source code of
-| |                                             your plugin and is the most important sub module of the 
+├─plugin                                        Plugin module folder. Contains the source code of your
+| |                                             plugin and is the most important sub module of the
 | |                                             plugin project.
 | |
-│ │ plugin.xml                                  Plugin definition. This is the file used by the application
-| |                                             server to load your plugin. Contains the extension point
-| |                                             and components used by your plugin to attach to the jazz
+│ │ plugin.xml                                  Plugin definition. File used by the application server
+| |                                             to load your plugin. Contains the extension point and
+| |                                             components used by your plugin to attach to the jazz
 | |                                             application. Must contain the proper names of your service.
 | |
 │ │ pom.xml                                     Sub module pom for creating plugin files
@@ -153,6 +154,7 @@ com.siemens.example.parent
 │ |           └─builder                         Builder implementations used for the example
 │ |              HelloWorldPostService.java     
 │ |              HelloWorldService.java
+| |
 | |─target                                      Generated plugin files. If you are using jetty, your
 | |                                             service description will have to point to this location
 | |                                             for proper dynamic class loading.
