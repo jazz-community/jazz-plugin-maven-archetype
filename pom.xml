@@ -4,7 +4,7 @@
 
   <groupId>com.siemens.bt.jazz.services.archetype</groupId>
   <artifactId>com.siemens.bt.jazz.services.archetype</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>2.0.1-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>com.siemens.bt.jazz.services.archetype</name>
