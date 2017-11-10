@@ -6,6 +6,26 @@ All of the following sections make assumptions about your working environment. A
 
 Further, you will need to have installed the [Jazz Base Service](https://github.com/jazz-community/jazz-plugin-base-service), which is a dependency for any services created with this archetype. Any maven builds without this dependency available in your local maven repository will fail. Also, you need to have the [jazz sdk p2 repository](https://github.com/jazz-community/jazz-p2-repository-converter) available in your maven repository. It is also suggested that you have the [Jazz Debug Environment](https://github.com/jazz-community/jazz-debug-environment) available for a rapid development and test cycle.
 
+## Table of Contents
+
+-   [Example archetype usage](#example-archetype-usage)
+-   [Bootstrapping a new jazz service using this
+    archetype](#bootstrapping-a-new-jazz-service-using-this-archetype)
+-   [Usage examples](#usage-examples)
+-   [Running tests](#running-tests)
+-   [Deploying to Jazz](#deploying-to-jazz)
+    -   [Update existing
+        installation](#update-existing-installation)
+    -   [More deployment information](#more-deployment-information)
+    -   [For jetty](#for-jetty)
+-   [Incrementing version](#incrementing-version)
+-   [Dependency versions](#dependency-versions)
+-   [Detailed archetype usage](#detailed-archetype-usage)
+-   [File structure explanation (using the simple
+    example)](#file-structure-explanation-using-the-simple-example)
+-   [Contributing](#contributing)
+-   [Licensing](#licensing)
+
 ## Example archetype usage
 This section shows how to create an example service from the archetype. It uses default settings and is therefore not recommended for usage in a productive environment without reviewing it carefully. Hence, it only serves as an example.
 
@@ -28,12 +48,18 @@ Using paramters when running the automated setup, a new service can be created w
 4. Copy this folder to wherever you want to work on your plugin.
 5. Run `mvn package` to build the plugin files required to run the plugin as a service from this location, or run `mvn install` to make the package available in your maven repository.
 
+## Usage examples
+For detailed code examples, have a look at the open sourced services that use the base service for their implementation.
+
+- [Bulk Mover Service](https://github.com/jazz-community/rtc-workitem-bulk-mover-service) 
+- [Secure Property Store](https://github.com/jazz-community/rtc-secure-user-property-store)
+
 ## Running tests
 To run your unit tests, run `mvn integration-test`. Although the tests are standard junit unit tests, they are run in the integration-test phase because of the tycho-surefire plugin. This makes it possible to use and especially mock many dependencies that would otherwise be unavailable. For a more in-depth look at how you can use this to your advance, look at the tests in the [Base Service project](https://github.com/jazz-community/jazz-plugin-base-service).
 
 Unless you are looking to use special features, you can write your tests like you would any other regular junit unit tests.
 
-### Deploying to Jazz
+## Deploying to Jazz
 When deploying to a jazz instance running on an application server, you can deploy the update site created by the maven build like you would any other update site.
 
 1. After a successful maven build, there should be a `target` folder within your `update-site` folder. 
@@ -90,7 +116,7 @@ This is also necessesary when you add dependencies. Changes have to be made to t
 
 Remember to keep your test manifest file up to speed with your plugin manifest file. Your tests will likely use the same dependencies as the implementation.
 
-### Detailed archetype usage
+## Detailed archetype usage
 Using the archetype directly without the simple setup wrapper scripts is not recommended and you should only use this if you have a very specific use case. You will have to consider some details without which your resulting project will fail to build.
 
 1. Run `mvn install` from anywhere on your system, where you would like to create a new project.
