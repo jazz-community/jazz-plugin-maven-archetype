@@ -232,7 +232,7 @@ com.siemens.example.parent
     └ zip.xml                                   File structure for resulting plugin update site
 ```
 ## Contributing
-Please use the [Issue Tracker](https://github.com/jazz-community/rtc-absence-widget/issues) of this repository to report issues or suggest enhancements.
+Please use the [Issue Tracker](https://github.com/jazz-community/jazz-plugin-maven-archetype/issues) of this repository to report issues or suggest enhancements.
 
 For general contribution guidelines, please refer to [CONTRIBUTING.md](https://github.com/jazz-community/jazz-plugin-maven-archetype/blob/master/CONTRIBUTING.md)
 
