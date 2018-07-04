@@ -14,7 +14,7 @@
                   name="REST Service"
                   kind="MODELLED_REST"
                   uri="${package}.I${serviceName}"
-                  version="1">
+                  version="${qualifiedVersion}">
             </service>
       </component>
    </extension>
