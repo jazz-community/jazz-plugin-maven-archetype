@@ -3,9 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
-import com.ibm.team.jfs.app.http.util.HttpConstants.HttpMethod;
 import com.siemens.bt.jazz.services.base.BaseService;
-import com.siemens.bt.jazz.services.base.router.factory.RestFactory;
 import ${package}.builder.HelloWorldPostService;
 import ${package}.builder.HelloWorldService;
 
@@ -23,7 +21,7 @@ public class ${serviceName} extends BaseService implements I${serviceName} {
 	 */
 	public ${serviceName}() {
 		super();
-		router.addService(HttpMethod.GET, "helloWorld", new RestFactory(HelloWorldService.class));
-		router.addService(HttpMethod.POST, "helloWorld", new RestFactory(HelloWorldPostService.class));
+		router.get("helloWorld", HelloWorldService.class);
+		router.post("helloWorld", HelloWorldPostService.class);
 	}
 }
