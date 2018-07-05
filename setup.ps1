@@ -1,6 +1,6 @@
 param (
     [Alias('g')][string]$group,
-    [Alias('v')][string]$version = "1.0.0-SNAPSHOT",
+    [Alias('v')][string]$version = "1.0.0",
     # maybe make sure that the service name is always
     # capitalized?
     [Alias('s')][string]$serviceName = "ExampleService"
@@ -23,12 +23,10 @@ mvn archetype:generate -B `
     "-DarchetypeCatalog=local" `
     "-DarchetypeGroupId=com.siemens.bt.jazz.services.archetype" `
     "-DarchetypeArtifactId=com.siemens.bt.jazz.services.archetype" `
-    "-Dversion=1.0.0-SNAPSHOT" `
+    "-Dversion=$version" `
     "-DgroupId=$group" `
     "-DartifactId=$group.parent" `
     "-Dpackage=$group" `
     "-DserviceName=$serviceName"
 
 cd "$group.parent"
-
-mvn org.eclipse.tycho:tycho-versions-plugin:set-version "-DnewVersion=$version"

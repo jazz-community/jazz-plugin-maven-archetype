@@ -3,39 +3,32 @@
 #set( $symbol_escape = '\' )
 package ${package}.builder;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.siemens.bt.jazz.services.base.rest.RestRequest;
+import com.ibm.team.repository.service.TeamRawService;
+import com.siemens.bt.jazz.services.base.rest.parameters.PathParameters;
+import com.siemens.bt.jazz.services.base.rest.parameters.RestRequest;
+import com.siemens.bt.jazz.services.base.rest.service.AbstractRestService;
+import com.siemens.bt.jazz.services.base.utils.RequestReader;
 import org.apache.commons.logging.Log;
 import org.apache.http.auth.AuthenticationException;
 
-import com.ibm.team.repository.service.TeamRawService;
-import com.siemens.bt.jazz.services.base.rest.AbstractRestService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public final class HelloWorldPostService extends AbstractRestService {
 
-    public HelloWorldPostService(Log log, HttpServletRequest request, HttpServletResponse response, RestRequest restRequest, TeamRawService parentService) {
-        super(log, request, response, restRequest, parentService);
+    public HelloWorldPostService(
+            Log log, HttpServletRequest request,
+            HttpServletResponse response,
+            RestRequest restRequest,
+            TeamRawService parentService,
+            PathParameters pathParameters) {
+        super(log, request, response, restRequest, parentService, pathParameters);
     }
 
     public void execute() throws IOException, URISyntaxException, AuthenticationException {
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                        request.getInputStream()));
-        //BufferedReader reader = request.getReader();
-        StringBuilder builder = new StringBuilder(request.getContentLength());
-
-        for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-            builder.append(line);
-        }
-
-        String content = builder.toString();
-        response.getWriter().write("POST successful! The following data was sent:${symbol_escape}n" + content);
+        String content = RequestReader.readAsString(request);
+        response.getWriter().write("POST successful! The following data was sent:\n" + content);
     }
 }
