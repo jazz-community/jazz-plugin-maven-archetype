@@ -104,7 +104,6 @@ When building and distributing a new version of your service, all of the version
 Run the tycho-versions-plugin from the project root (where the root pom.xml is located).
 
 Examples:
-- change all versions to 2.0.0: `mvn org.eclipse.tycho:tycho-versions-plugin:set-version "-DnewVersion=2.0.0"`
 - change all version to 1.2.0-SNAPSHOT or 1.2.0.qualifier: `mvn org.eclipse.tycho:tycho-versions-plugin:set-version "-DnewVersion=1.2.0-SNAPSHOT"`
 
 This also makes sure that the correct snapshot and qualifier strings are set in the respective pom and manifest files.
