@@ -38,12 +38,12 @@ This section shows how to create an example service from the archetype. It uses 
 5. You can now run `mvn package` from inside the `target/com.siemens.example.parent` folder to build the example service plugin.
 
 ## Bootstrapping a new jazz service using this archetype
-Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1-SNAPSHOT` and a service named `GitHubExampleService`.
+Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1` and a service named `GitHubExampleService`.
 
 1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run the setup script, but this time passing values to all parameters (chose your own values, short parameters are available):
-    * Windows Powershell: `.\setup.ps1 -group org.siemens.example -version 0.0.1-SNAPSHOT -serviceName GitHubExampleService`
-    * Linux: `./setup.sh --group com.siemens.example --serviceName GitHubExampleService --version 0.0.1-SNAPSHOT`
+    * Windows Powershell: `.\setup.ps1 -group org.siemens.example -version 0.0.1 -serviceName GitHubExampleService`
+    * Linux: `./setup.sh --group com.siemens.example --serviceName GitHubExampleService --version 0.0.1`
 3. As above, this will place a plugin folder structure called `org.siemens.example.parent` in the target folder.
 4. Copy this folder to wherever you want to work on your plugin.
 5. Run `mvn package` to build the plugin files required to run the plugin as a service from this location, or run `mvn install` to make the package available in your maven repository.
@@ -112,7 +112,9 @@ This also makes sure that the correct snapshot and qualifier strings are set in 
 ## Dependency versions
 If the versions of your dependencies change, there is no other way than adjusting the pom and manifest.mf files by hand. Make sure that the versions you want to use are consistent across these files, otherwise you will get build errors. Use any text editor to make changes.
 
-This is also necessesary when you add dependencies. Changes have to be made to the pom as well as the manifest.mf files. You can use the existing entries as a guide of how to define dependencies so that maven resolves and copies them to the right places.
+This is also necessary when you add dependencies. Changes have to be made to the pom as well as the manifest.mf files. You can use the existing entries as a guide of how to define dependencies so that maven resolves and copies them to the right places.
+
+Make sure that you change the dependency on your own project in the test manifest when you adjust the project version. The test project has to depend on it's plugin, but these versions are not adjusted automatically.
 
 Remember to keep your test manifest file up to speed with your plugin manifest file. Your tests will likely use the same dependencies as the implementation.
 
