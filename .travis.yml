@@ -1,2 +1,4 @@
 language: java
 after_success: ./setup.sh --group org.jazzcommunity.example -serviceName ExampleService --version 1.0.0
+notifications:
+  email: false
