@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/SBI-/jazz-plugin-maven-archetype.svg?branch=master)](https://travis-ci.com/SBI-/jazz-plugin-maven-archetype)
+
 # Jazz Plugin Maven Archetype <br /> Bootstrapping new Jazz Services was never easier!
 Maven archetype to generate a jazz plugin project. If you want to get your feet wet as quickly as possible, just read [Bootstrapping](#bootstrapping-a-new-jazz-service-using-this-archetype)<br />
 ([What is Archetype?](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html))

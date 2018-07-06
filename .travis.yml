@@ -1,0 +1,5 @@
+language: java
+after_success: ./setup.sh --group org.jazzcommunity.example -serviceName ExampleService --version 1.0.0
+  && mvn org.eclipse.tycho:tycho-packaging-plugin:1.2.0:validate-version
+notifications:
+  email: false
