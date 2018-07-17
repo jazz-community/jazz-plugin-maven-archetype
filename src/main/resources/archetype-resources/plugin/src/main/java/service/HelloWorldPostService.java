@@ -8,12 +8,9 @@ import com.siemens.bt.jazz.services.base.rest.parameters.PathParameters;
 import com.siemens.bt.jazz.services.base.rest.parameters.RestRequest;
 import com.siemens.bt.jazz.services.base.rest.service.AbstractRestService;
 import com.siemens.bt.jazz.services.base.utils.RequestReader;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
-import org.apache.http.auth.AuthenticationException;
 
 
 public final class HelloWorldPostService extends AbstractRestService {
@@ -26,7 +23,7 @@ public final class HelloWorldPostService extends AbstractRestService {
     super(log, request, response, restRequest, parentService, pathParameters);
   }
 
-  public void execute() throws IOException, URISyntaxException, AuthenticationException {
+  public void execute() throws Exception {
     String content = RequestReader.readAsString(request);
     response.getWriter().write("POST successful! The following data was sent:\n" + content);
   }

@@ -7,13 +7,10 @@ import com.ibm.team.repository.service.TeamRawService;
 import com.siemens.bt.jazz.services.base.rest.parameters.PathParameters;
 import com.siemens.bt.jazz.services.base.rest.parameters.RestRequest;
 import com.siemens.bt.jazz.services.base.rest.service.AbstractRestService;
-import java.io.IOException;
 import java.io.Writer;
-import java.net.URISyntaxException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
-import org.apache.http.auth.AuthenticationException;
 
 
 public class HelloWorldService extends AbstractRestService {
@@ -29,7 +26,7 @@ public class HelloWorldService extends AbstractRestService {
   /**
    * Execute the desired action and return a result
    */
-  public void execute() throws IOException, URISyntaxException, AuthenticationException {
+  public void execute() throws Exception {
     Writer writer = response.getWriter();
     writer.write("Hello World!!!");
   }
