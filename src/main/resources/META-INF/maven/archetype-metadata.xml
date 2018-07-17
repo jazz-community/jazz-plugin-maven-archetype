@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archetype-descriptor
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
-        name="org.jazzcommunity.service.archetype"
-        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0">
-    <requiredProperties>
-        <requiredProperty key="serviceName"/>
-    </requiredProperties>
-    <fileSets>
-        <!-- maven config folder -->
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>.mvn</directory>
-            <includes>
-                <include>**/*.xml</include>
-            </includes>
-        </fileSet>
-        <!-- plugin folder -->
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-            <directory>plugin/src/main/java</directory>
-            <includes>
-                <include>**/*.java</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>plugin/META-INF</directory>
-            <includes>
-                <include>**/*.MF</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>plugin/</directory>
-            <includes>
-                <include>pom.xml</include>
-                <include>build.properties</include>
-                <include>plugin.xml</include>
-            </includes>
-        </fileSet>
-        <!-- feature folder -->
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>feature/</directory>
-            <includes>
-                <include>pom.xml</include>
-                <include>build.properties</include>
-                <include>feature.xml</include>
-            </includes>
-        </fileSet>
-        <!-- update site folder -->
-        <fileSet filtered="false" encoding="UTF-8">
-            <directory>update-site/templates</directory>
-            <includes>
-                <include>**/*.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="false" encoding="UTF-8">
-            <directory>update-site/templates/deployment</directory>
-            <includes>
-                <include>**/*.ini</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="false" encoding="UTF-8">
-            <directory>update-site/templates</directory>
-            <includes>
-                <include>**/*.ini</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>update-site/</directory>
-            <includes>
-                <include>pom.xml</include>
-                <include>category.xml</include>
-            </includes>
-        </fileSet>
-        <!-- test folder -->
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>test/</directory>
-            <includes>
-                <include>pom.xml</include>
-                <include>build.properties</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-            <directory>test/src/test/java</directory>
-            <includes>
-                <include>**/*.java</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>test/META-INF</directory>
-            <includes>
-                <include>**/*.MF</include>
-            </includes>
-        </fileSet>
-    </fileSets>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+  name="org.jazzcommunity.service.archetype"
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0">
+  <requiredProperties>
+    <requiredProperty key="serviceName"/>
+  </requiredProperties>
+  <fileSets>
+    <!-- maven config folder -->
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>.mvn</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <!-- plugin folder -->
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>plugin/src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>plugin/META-INF</directory>
+      <includes>
+        <include>**/*.MF</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>plugin/</directory>
+      <includes>
+        <include>pom.xml</include>
+        <include>build.properties</include>
+        <include>plugin.xml</include>
+      </includes>
+    </fileSet>
+    <!-- feature folder -->
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>feature/</directory>
+      <includes>
+        <include>pom.xml</include>
+        <include>build.properties</include>
+        <include>feature.xml</include>
+      </includes>
+    </fileSet>
+    <!-- update site folder -->
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>update-site/templates</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>update-site/templates/deployment</directory>
+      <includes>
+        <include>**/*.ini</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>update-site/templates</directory>
+      <includes>
+        <include>**/*.ini</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>update-site/</directory>
+      <includes>
+        <include>pom.xml</include>
+        <include>category.xml</include>
+      </includes>
+    </fileSet>
+    <!-- test folder -->
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>test/</directory>
+      <includes>
+        <include>pom.xml</include>
+        <include>build.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>test/src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>test/META-INF</directory>
+      <includes>
+        <include>**/*.MF</include>
+      </includes>
+    </fileSet>
+  </fileSets>
 </archetype-descriptor>
