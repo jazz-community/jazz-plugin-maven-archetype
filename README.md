@@ -33,20 +33,20 @@ This section shows how to create an example service from the archetype. It uses 
 
 1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run the setup script
-    * Windows Powershell: `.\setup.ps1 -g org.siemens.example`
+    * Windows Powershell: `.\setup.ps1 -g org.jazzcommunity.example`
     * Linux: `./setup.sh`
 3. Three consecutive successful maven build cycles should run.
-4. Inside the target folder, there should now be a folder named `com.siemens.example.parent` with the example service structure.
-5. You can now run `mvn package` from inside the `target/com.siemens.example.parent` folder to build the example service plugin.
+4. Inside the target folder, there should now be a folder named `com.jazzcommunity.example.parent` with the example service structure.
+5. You can now run `mvn package` from inside the `target/com.jazzcommunity.example.parent` folder to build the example service plugin.
 
 ## Bootstrapping a new jazz service using this archetype
 Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1` and a service named `GitHubExampleService`.
 
 1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
 2. Run the setup script, but this time passing values to all parameters (chose your own values, short parameters are available):
-    * Windows Powershell: `.\setup.ps1 -group org.siemens.example -version 0.0.1 -serviceName GitHubExampleService`
-    * Linux: `./setup.sh --group com.siemens.example --serviceName GitHubExampleService --version 0.0.1`
-3. As above, this will place a plugin folder structure called `org.siemens.example.parent` in the target folder.
+    * Windows Powershell: `.\setup.ps1 -group org.jazzcommunity.example -version 0.0.1 -serviceName GitHubExampleService`
+    * Linux: `./setup.sh --group com.jazzcommunity.example --serviceName GitHubExampleService --version 0.0.1`
+3. As above, this will place a plugin folder structure called `org.jazzcommunity.example.parent` in the target folder.
 4. Copy this folder to wherever you want to work on your plugin.
 5. Run `mvn package` to build the plugin files required to run the plugin as a service from this location, or run `mvn install` to make the package available in your maven repository.
 
@@ -66,14 +66,14 @@ When deploying to a jazz instance running on an application server, you can depl
 
 1. After a successful maven build, there should be a `target` folder within your `update-site` folder. 
 
-    Example: `com.siemens.example.parent/update-site/target`
+    Example: `org.jazzcommunity.example.parent/update-site/target`
 
-    Inside this folder, there will be a zipped update site, eg. `com.siemens.example.updatesite-1.0.0-SNAPSHOT.zip`
+    Inside this folder, there will be a zipped update site, eg. `org.jazzcommunity.example.updatesite-1.0.0-SNAPSHOT.zip`
 
 2. Extract the `packagename-update-site.ini` **file** from the zip file to the `server/conf/ccm/provision_profiles` directory (where packagename is the package of your service)
 3. Extract the `packagename-update-site` **folder** to the `server/conf/ccm/sites` directory (where packagename is the package of your service)
 4. Restart the server
-5. Once the server has been restarted, your service should be available. You can reach your service under the application it has been deployed with. For example, if you deployed your plugin on ccm, you should find your service on the service description page: `https://server.url/ccm/service`. You can also locate your service directly with it's interface name, such as `https://server.url/ccm/service/com.siemens.example.IExampleService`. Any urls that have been added to the router append to this service url, so if you want to call the `HelloWorldService`, you would call `https://server.url/ccm/service/com.siemens.example.IExampleService/helloWorld`.
+5. Once the server has been restarted, your service should be available. You can reach your service under the application it has been deployed with. For example, if you deployed your plugin on ccm, you should find your service on the service description page: `https://server.url/ccm/service`. You can also locate your service directly with it's interface name, such as `https://server.url/ccm/service/org.jazzcommunity.example.IExampleService`. Any urls that have been added to the router append to this service url, so if you want to call the `HelloWorldService`, you would call `https://server.url/ccm/service/org.jazzcommunity.example.IExampleService/helloWorld`.
 
 ### Update existing installation
 Whenever you rebuild the plugin after changing your implementation, you will have to redeploy.
@@ -136,7 +136,7 @@ For details on the archetype command line, see either the `setup.sh` or the `set
 For brevity, this section only covers files and folders that are relevant to understanding the basic structure generated by the archetype (not the file structure of the actual archetype). A finished build will contain more files. Files not mentioned here will generally not need to be touched when working on your plugin.
 
 ```
-com.siemens.example.parent
+org.jazzcommunity.example.parent
 │ pom.xml                                       Parent pom of the plugin build. This is what you want
 |                                               to run most of the time to get a complete plugin build
 │
@@ -173,8 +173,8 @@ com.siemens.example.parent
 │ |─src                                         Actual plugin source code
 │ | └─main
 │ |   └─java
-│ |     └─com
-│ |       └─siemens
+│ |     └─org
+│ |       └─jazzcommunity
 │ |         └─example
 │ |           │ ExampleService.java             Main service implementation. This file needs to be
 | |           |                                 mentioned in the plugin.xml
@@ -206,8 +206,8 @@ com.siemens.example.parent
 │ └─src
 │   └─test
 │     └─java
-│       └─com
-│         └─siemens
+│       └─org
+│         └─jazzcommunity
 │           └─example
 │              ExampleServiceTest.java          Example test. Use this as a starting point to write
 │                                               your own tests.
