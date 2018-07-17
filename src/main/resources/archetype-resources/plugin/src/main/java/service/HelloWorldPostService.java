@@ -17,7 +17,6 @@ import org.apache.http.auth.AuthenticationException;
 
 
 public final class HelloWorldPostService extends AbstractRestService {
-
   public HelloWorldPostService(
       Log log, HttpServletRequest request,
       HttpServletResponse response,
