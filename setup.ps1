@@ -15,14 +15,10 @@ mvn clean install
 
 cd target
 
-# 1.0.0-SNAPSHOT is important here. It needs to be set to this value
-# regardless of what is set with the tycho-versions-plugin. OSGI and
-# maven at the same time is a bit weird, so just leave this bit of
-# magic in here.
 mvn archetype:generate -B `
     "-DarchetypeCatalog=local" `
-    "-DarchetypeGroupId=com.siemens.bt.jazz.services.archetype" `
-    "-DarchetypeArtifactId=com.siemens.bt.jazz.services.archetype" `
+    "-DarchetypeGroupId=org.jazzcommunity.service.archetype" `
+    "-DarchetypeArtifactId=org.jazzcommunity.service.archetype" `
     "-Dversion=$version" `
     "-DgroupId=$group" `
     "-DartifactId=$group.parent" `
