@@ -4,8 +4,8 @@
 package ${package};
 
 import com.siemens.bt.jazz.services.base.BaseService;
-import ${package}.builder.HelloWorldPostService;
-import ${package}.builder.HelloWorldService;
+import ${package}.service.HelloWorldPostService;
+import ${package}.service.HelloWorldService;
 
 /**
  * Entry point for the Service, called by the Jazz class loader.
