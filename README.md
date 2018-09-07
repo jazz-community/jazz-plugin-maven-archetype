@@ -14,6 +14,7 @@ Further, you will need to have installed the [Jazz Base Service](https://github.
 -   [Bootstrapping a new jazz service using this
     archetype](#bootstrapping-a-new-jazz-service-using-this-archetype)
 -   [Usage examples](#usage-examples)
+-   [Code formatting](#code-formatting)
 -   [Running tests](#running-tests)
 -   [Deploying to Jazz](#deploying-to-jazz)
     -   [Update existing
@@ -55,6 +56,9 @@ For detailed code examples, have a look at the open sourced services that use th
 
 - [Bulk Mover Service](https://github.com/jazz-community/rtc-workitem-bulk-mover-service) 
 - [Secure Property Store](https://github.com/jazz-community/rtc-secure-user-property-store)
+
+## Code formatting
+The plugin archetype includes the [fmt-maven-plugin](https://github.com/coveo/fmt-maven-plugin), which automatically formats code according to the [google formatting section](https://google.github.io/styleguide/javaguide.html#s4-formatting) of the google java style guide when a build occurs. [Intellij IDEA](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml) and [Eclipse](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) can be set up to also automatically format code according to the google style guide using the provided stylesheets. To avoid ambiguity while writing code, we suggest setting up your development environment to also conform to the google format. This ensures a uniform look and feel accross our open source java projects.
 
 ## Running tests
 To run your unit tests, run `mvn integration-test`. Although the tests are standard junit unit tests, they are run in the integration-test phase because of the tycho-surefire plugin. This makes it possible to use and especially mock many dependencies that would otherwise be unavailable. For a more in-depth look at how you can use this to your advance, look at the tests in the [Base Service project](https://github.com/jazz-community/jazz-plugin-base-service).
