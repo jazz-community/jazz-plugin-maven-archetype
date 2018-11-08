@@ -114,6 +114,8 @@ Examples:
 
 This also makes sure that the correct snapshot and qualifier strings are set in the respective pom and manifest files.
 
+**Make sure that you change the dependency on your own project in the test manifest when you adjust the project version. The test project has to depend on it's plugin, but these versions are not adjusted automatically.**
+
 ## Dependency versions
 If the versions of your dependencies change, there is no other way than adjusting the pom and manifest.mf files by hand. Make sure that the versions you want to use are consistent across these files, otherwise you will get build errors. Use any text editor to make changes.
 
