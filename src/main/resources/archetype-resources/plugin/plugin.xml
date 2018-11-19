@@ -27,15 +27,12 @@
         <providedService interface="${package}.I${serviceName}"/>
       </provides>
       <prerequisites>
-        <optionalService
-          interface="com.ibm.team.repository.common.service.IContributorService">
-        </optionalService>
-        <optionalService
-          interface="com.ibm.team.workitem.service.IWorkItemServer">
-        </optionalService>
-        <optionalService
-          interface="com.ibm.team.repository.common.internal.IContributorRestService">
-        </optionalService>
+        <requiredService interface="com.ibm.team.process.service.IProcessServerService"/>
+        <requiredService interface="com.ibm.team.repository.common.service.IContributorService"/>
+        <requiredService interface="com.ibm.team.repository.service.IRepositoryItemService" />
+        <requiredService interface="com.ibm.team.workitem.service.IAuditableServer"/>
+        <requiredService interface="com.ibm.team.workitem.service.IQueryServer" />
+        <requiredService interface="com.ibm.team.workitem.service.IWorkItemServer"/>
       </prerequisites>
     </serviceProvider>
   </extension>
