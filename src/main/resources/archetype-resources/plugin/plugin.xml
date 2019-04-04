@@ -27,8 +27,11 @@
         <providedService interface="${package}.I${serviceName}"/>
       </provides>
       <prerequisites>
+        <requiredService interface="com.ibm.team.links.common.service.ILinkService"/>
         <requiredService interface="com.ibm.team.process.service.IProcessServerService"/>
         <requiredService interface="com.ibm.team.repository.common.service.IContributorService"/>
+        <requiredService interface="com.ibm.team.repository.common.service.IPermissionService"/>        
+        <requiredService interface="com.ibm.team.repository.service.IMailerService"/>
         <requiredService interface="com.ibm.team.repository.service.IRepositoryItemService" />
         <requiredService interface="com.ibm.team.workitem.service.IAuditableServer"/>
         <requiredService interface="com.ibm.team.workitem.service.IQueryServer" />
