@@ -10,9 +10,7 @@ Further, you will need to have installed the [Jazz Base Service](https://github.
 
 ## Table of Contents
 
--   [Example archetype usage](#example-archetype-usage)
--   [Bootstrapping a new jazz service using this
-    archetype](#bootstrapping-a-new-jazz-service-using-this-archetype)
+-   [Bootstrapping a new jazz service using this rchetype](#bootstrapping-a-new-jazz-service-using-this-archetype)
 -   [Usage examples](#usage-examples)
 -   [Code formatting](#code-formatting)
 -   [Running tests](#running-tests)
@@ -28,17 +26,6 @@ Further, you will need to have installed the [Jazz Base Service](https://github.
     example)](#file-structure-explanation-using-the-simple-example)
 -   [Contributing](#contributing)
 -   [Licensing](#licensing)
-
-## Example archetype usage
-This section shows how to create an example service from the archetype. It uses default settings and is therefore not recommended for usage in a productive environment without reviewing it carefully. Hence, it only serves as an example.
-
-1. Clone this repository: `git clone https://github.com/jazz-community/jazz-plugin-maven-archetype.git`
-2. Run the setup script
-    * Windows Powershell: `.\setup.ps1 -g org.jazzcommunity.example`
-    * Linux: `./setup.sh`
-3. Three consecutive successful maven build cycles should run.
-4. Inside the target folder, there should now be a folder named `com.jazzcommunity.example.parent` with the example service structure.
-5. You can now run `mvn package` from inside the `target/com.jazzcommunity.example.parent` folder to build the example service plugin.
 
 ## Bootstrapping a new jazz service using this archetype
 Using paramters when running the automated setup, a new service can be created with proper package declaration, groupId and names already set. Passing the right parameters will allow you to get coding right away. In this example, I will demonstrate how to create a service with the groupId `org.company.example`, a version of `0.0.1` and a service named `GitHubExampleService`.
@@ -56,6 +43,11 @@ For detailed code examples, have a look at the open sourced services that use th
 
 - [Bulk Mover Service](https://github.com/jazz-community/rtc-workitem-bulk-mover-service) 
 - [Secure Property Store](https://github.com/jazz-community/rtc-secure-user-property-store)
+
+The plugin archetype creates a REST service for Jazz plugins by default. However, with some slight modifications in the `plugin.xml` file, you can also generate any other extension type for RTC jazz, like **Advisors**, **Participants** or **Value Providers**. For examples of this kind, have a look at the following plugins open sourced by us:
+
+- [Set _'Owned By'_ Participant](https://github.com/jazz-community/rtc-set-owned-by-participant)
+- [Current Iteration Switcher](https://github.com/jazz-community/rtc-current-iteration-automatic-switcher)
 
 ## Code formatting
 The plugin archetype includes the [fmt-maven-plugin](https://github.com/coveo/fmt-maven-plugin), which automatically formats code according to the [google formatting section](https://google.github.io/styleguide/javaguide.html#s4-formatting) of the google java style guide when a build occurs. [Intellij IDEA](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml) and [Eclipse](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) can be set up to also automatically format code according to the google style guide using the provided stylesheets. To avoid ambiguity while writing code, we suggest setting up your development environment to also conform to the google format. This ensures a uniform look and feel accross our open source java projects.
